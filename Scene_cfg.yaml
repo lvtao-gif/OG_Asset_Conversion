@@ -1,0 +1,245 @@
+env:
+  action_frequency: 30
+  physics_frequency: 120
+  external_sensors:
+  - sensor_type: VisionSensor
+    name: external_sensor0
+    relative_prim_path: /external_sensor0
+    modalities: [rgb, depth]
+    sensor_kwargs: {image_height: 500, image_width: 500}
+    position: [0.0, 0.0, 5.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+    pose_frame: world
+render: {viewer_width: 800, viewer_height: 800}
+start_viewer_camera_pos_ort:
+  position: [ 1.3764, -1.3598,  2.4129]
+  orientation: [ 0.4010, -0.0885, -0.1965,  0.8904]
+scene: {type: Scene, scene_model: null}
+objects:
+- type: DatasetObject
+  name: floors_yfunln_0
+  category: floors
+  model: yfunln
+  prim_type: RIGID
+  scale: [0.76, 0.86, 1.0]
+  position: [0.0, 0.0, 0.0]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: walls_fxmppo_0
+  category: walls
+  model: fxmppo
+  prim_type: RIGID
+  scale: [1.712, 1.0, 1.0]
+  position: [0.0, 2.5, 1.26]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: walls_fxmppo_1
+  category: walls
+  model: fxmppo
+  prim_type: RIGID
+  scale: [1.712, 1.0, 1.0]
+  position: [2.5, 0.0, 1.26]
+  orientation: [0.0, 0.0, 0.7071, -0.7071]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: walls_fxmppo_2
+  category: walls
+  model: fxmppo
+  prim_type: RIGID
+  scale: [1.712, 1.0, 1.0]
+  position: [0.0, -2.5, 1.26]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: walls_fxmppo_3
+  category: walls
+  model: fxmppo
+  prim_type: RIGID
+  scale: [1.712, 1.0, 1.0]
+  position: [-2.5, 0.0, 1.26]
+  orientation: [0.0, 0.0, 0.7071, 0.7071]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: door_ktydvs_0
+  category: door
+  model: ktydvs
+  prim_type: RIGID
+  scale: [1.0, 1.0, 1.0]
+  position: [1.307, 2.363, 1.22]
+  orientation: [-0.0, 0.0, 0.7071, 0.7071]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: fixed_window_etjpqr_0
+  category: fixed_window
+  model: etjpqr
+  prim_type: RIGID
+  scale: [1.0, 1.0, 1.0]
+  position: [0.0, -2.45, 1.51]
+  orientation: [0.0, 0.0, 0.7071, -0.7071]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: ceilings_chcxue_0
+  category: ceilings
+  model: chcxue
+  prim_type: RIGID
+  scale: [2.36, 1.09, 1.0]
+  position: [0.0, 0.0, 2.62]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: true
+  abilities: null
+- type: DatasetObject
+  name: bed_fnzxxr_0
+  category: bed
+  model: fnzxxr
+  scale: [1.0, 1.0, 1.0]
+  position: [-1.3885, 1.5472, 0.3304]
+  orientation: [-0.0, 0.0002, 0.0, 1.0]
+  abilities: null
+- type: DatasetObject
+  name: nightstand_hessxe_0
+  category: nightstand
+  model: hessxe
+  scale: [1.0, 1.0, 1.0]
+  position: [2.1099, -1.0683, 0.4829]
+  orientation: [0.0, -0.0, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: bookcase_eyidvz_0
+  category: bookcase
+  model: eyidvz
+  scale: [1.0, 1.0, 1.0]
+  position: [-2.2522, -0.0, 0.6066]
+  orientation: [-0.0, 0.0, 0.0, 1.0]
+  abilities: null
+- type: DatasetObject
+  name: desk_iufjhy_0
+  category: desk
+  model: iufjhy
+  scale: [1.0, 1.0, 1.0]
+  position: [2.0326, -0.2003, 0.6341]
+  orientation: [-0.0, -0.0, 1.0, -0.0]
+  abilities: null
+- type: DatasetObject
+  name: banana_vvyyyv_0
+  category: banana
+  model: vvyyyv
+  scale: [1.0, 1.0, 1.0]
+  position:
+  - [1.7205, 2.0486]
+  - [0.4496, 0.6781]
+  - 0.92
+  orientation: [-0.0, -0.0003, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: wicker_basket_unasxd_0
+  category: wicker_basket
+  model: unasxd
+  scale: [1.0, 1.0, 1.0]
+  position:
+  - [1.7494, 1.7897]
+  - [-0.544, -0.2883]
+  - 0.9878
+  orientation: [-0.0062, -0.0005, 1.0, -0.0]
+  abilities: null
+- type: DatasetObject
+  name: water_glass_elwfms_0
+  category: water_glass
+  model: elwfms
+  scale: [1.0, 1.0, 1.0]
+  position: [1.9623, 0.336, 0.9577]
+  orientation: [-0.0001, 0.0004, -1.0, -0.0]
+  abilities: null
+- type: DatasetObject
+  name: mug_fapsrj_0
+  category: mug
+  model: fapsrj
+  scale: [1.0, 1.0, 1.0]
+  position: [1.81, -0.0042, 0.9337]
+  orientation: [0.0, -0.0003, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: hardback_aesiym_0
+  category: hardback
+  model: aesiym
+  scale: [1.0, 1.0, 1.0]
+  position: [2.181, 0.0204, 0.9056]
+  orientation: [-0.0, -0.0003, 1.0, -0.0]
+  abilities: null
+- type: DatasetObject
+  name: table_lamp_bbentu_0
+  category: table_lamp
+  model: bbentu
+  scale: [1.0, 1.0, 1.0]
+  position: [2.1811, -0.4483, 1.1915]
+  orientation: [-0.0, -0.0003, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: pencil_holder_ipeltj_0
+  category: pencil_holder
+  model: ipeltj
+  scale: [1.0, 1.0, 1.0]
+  position: [1.966, 0.029, 0.9716]
+  orientation: [0.0, -0.0004, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: stapler_kgnsas_0
+  category: stapler
+  model: kgnsas
+  scale: [1.0, 1.0, 1.0]
+  position: [1.965, -0.2424, 0.9149]
+  orientation: [0.0005, -0.0004, 1.0, 0.0004]
+  abilities: null
+- type: DatasetObject
+  name: picture_frame_guatvs_0
+  category: picture_frame
+  model: guatvs
+  scale: [1.0, 1.0, 1.0]
+  position: [1.9408, -0.899, 0.8218]
+  orientation: [-0.0, -0.0001, 1.0, 0.0]
+  abilities: null
+- type: DatasetObject
+  name: cactus_imitmg_0
+  category: cactus
+  model: imitmg
+  scale: [1.0, 1.0, 1.0]
+  position: [1.9501, -1.2348, 0.8416]
+  orientation: [-0.0, -0.0, 1.0, -0.0]
+  abilities: null
+- type: DatasetObject
+  name: cola_can_0
+  category: custom
+  model: cola_can
+  dataset_name: og_assets
+  prim_type: RIGID
+  scale: [0.01, 0.01, 0.01]
+  position: [0.0, 0.0, 1.2]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: false
+  abilities: null
+robots:
+- type: FrankaPanda
+  name: robot_FrankaPanda
+  obs_modalities: [rgb, depth]
+  position: [1.5145, 0.0508, 0.9001]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  scale: 1.0
+  action_normalize: true
+  grasping_mode: assisted
+  default_reset_mode: untuck
+  action_type: continuous
+  sensor_config:
+    VisionSensor:
+      sensor_kwargs: {image_height: 300, image_width: 300}
+  controller_config:
+    arm_0: {name: InverseKinematicsController}
+    gripper_0: {name: MultiFingerGripperController}
+    camera: {name: JointController}

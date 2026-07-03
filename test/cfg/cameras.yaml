@@ -1,0 +1,40 @@
+固定式机器人:   # 目前只有franka
+  external_sensors:
+    - sensor_type: VisionSensor
+      name: external_sensor_1   # 必须从 1 开始，不得从 0 
+      relative_prim_path: /controllable__frankapanda__robot_FrankaPanda/panda_link0/external_sensor_1
+      modalities: [rgb, depth]
+      sensor_kwargs: {image_height: 480, image_width: 640}
+      position: [-0.3888000249862671, 0.7424999475479126, 0.9508999586105347]    # 相对机器人底座的偏移量
+      orientation: [-0.19670465333782947, 0.39310927960885556, 0.8032189803569181, -0.402009506398846]    # 相对机器人底座的偏移量
+      pose_frame: parent
+    - sensor_type: VisionSensor
+      name: external_sensor_2   # 必须从 1 开始，不得从 0 
+      relative_prim_path: /controllable__frankapanda__robot_FrankaPanda/panda_link0/external_sensor_2
+      modalities: [rgb, depth]
+      sensor_kwargs: {image_height: 480, image_width: 640}
+      position: [-0.2807999849319458, -0.8828999996185303, 0.8883999586105347]    # 相对机器人底座的偏移量
+      orientation: [0.39690331844979804, -0.16710139527409518, -0.35020292701860883, 0.8318069423902327]    # 相对机器人底座的偏移量
+      pose_frame: parent
+
+移动式机器人:   # 目前只有fetch
+  external_sensors:
+    - sensor_type: VisionSensor
+      name: external_sensor_1   # 必须从 1 开始，不得从 0 
+      relative_prim_path: /controllable__fetch__robot_Fetch/base_link/external_sensor_1
+      modalities: [rgb, depth]
+      sensor_kwargs: {image_height: 480, image_width: 640}
+      position: [-0.8083359714938289, 0.01184456442887901, 2.051489661652858]   # 相对机器人底座的偏移量
+      orientation: [0.2810423225058117, -0.2866550914417943, -0.6539248882822983, 0.6412692975622797]   # 相对机器人底座的偏移量
+      pose_frame: parent
+    - sensor_type: VisionSensor
+      name: external_sensor_2   # 必须从 1 开始，不得从 0 
+      relative_prim_path: /controllable__fetch__robot_Fetch/base_link/external_sensor_2
+      modalities: [rgb, depth]
+      sensor_kwargs: {image_height: 480, image_width: 640}
+      position: [-0.35498347993605744, 0.7622081877138773, 1.6220492725111717]   # 相对机器人底座的偏移量
+      orientation: [-0.22211997245303555, 0.42162573235613754, 0.7761909702341957, -0.41282204081118473]   # 相对机器人底座的偏移量
+      pose_frame: parent
+
+
+# 注：如不知道机器人relative_prim_path路径，可用：print(VisionSensor.SENSORS.keys())   # 放在env = og.Environment(configs=cfg_Scene)之后，用来获取机器人relative_prim_path路径

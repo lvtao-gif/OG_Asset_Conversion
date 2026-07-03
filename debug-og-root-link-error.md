@@ -20,7 +20,10 @@
 ## Log Evidence
 - Source inspection: OmniGibson `EntityPrim.update_links()` determines links only from the object's immediate child prims whose type is `Xform`, then requires exactly one root link candidate after excluding joint-children.
 - Source inspection: `RigidPrim.update_meshes()` classifies descendant meshes as collision meshes when `CollisionAPI` is applied.
+- Runtime evidence from user: USDA parser fails inside `cola_can.usd` at line 94 while composing `base_link`, with messages about attribute type / variability conflicts.
+- Local file inspection: the failing material section used non-ASCII shader prim names (`原理化_BSDF`, `图像纹理`) in both `def Shader` and connection paths.
 
 ## Verification Conclusion
 - Static source evidence supports Hypothesis A and B as most likely, but runtime evidence from the user's OG environment is still pending.
 - A second conversion variant was generated that reduces the hierarchy to `object -> base_link -> referenced geometry`, with collision APIs authored directly on the descendant meshes.
+- New evidence strongly supports an additional root cause: Blender-exported non-ASCII shader prim names are not being parsed robustly in the user's USD / Isaac / OG stack, so the material subtree must be ASCII-normalized first.

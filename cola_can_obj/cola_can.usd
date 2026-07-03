@@ -78,15 +78,15 @@ def Xform "World" (
         {
             def Material "Body_1"
             {
-                token outputs:surface.connect = </World/cola_can/_materials/Body_1/原理化_BSDF.outputs:surface>
+                token outputs:surface.connect = </World/cola_can/_materials/Body_1/Principled_BSDF.outputs:surface>
                 custom string userProperties:blender:data_name = "Body_1"
 
-                def Shader "原理化_BSDF"
+                def Shader "Principled_BSDF"
                 {
                     uniform token info:id = "UsdPreviewSurface"
                     float inputs:clearcoat = 0
                     float inputs:clearcoatRoughness = 0.03
-                    color3f inputs:diffuseColor.connect = </World/cola_can/_materials/Body_1/图像纹理.outputs:rgb>
+                    color3f inputs:diffuseColor.connect = </World/cola_can/_materials/Body_1/Image_Texture.outputs:rgb>
                     float inputs:ior = 1
                     float inputs:metallic = 0
                     float inputs:opacity = 1
@@ -95,7 +95,7 @@ def Xform "World" (
                     token outputs:surface
                 }
 
-                def Shader "图像纹理"
+                def Shader "Image_Texture"
                 {
                     uniform token info:id = "UsdUVTexture"
                     asset inputs:file = @./textures/cola_can_tex.jpg@
@@ -116,10 +116,10 @@ def Xform "World" (
 
             def Material "White"
             {
-                token outputs:surface.connect = </World/cola_can/_materials/White/原理化_BSDF.outputs:surface>
+                token outputs:surface.connect = </World/cola_can/_materials/White/Principled_BSDF.outputs:surface>
                 custom string userProperties:blender:data_name = "White"
 
-                def Shader "原理化_BSDF"
+                def Shader "Principled_BSDF"
                 {
                     uniform token info:id = "UsdPreviewSurface"
                     float inputs:clearcoat = 0
@@ -136,10 +136,10 @@ def Xform "World" (
 
             def Material "Opener"
             {
-                token outputs:surface.connect = </World/cola_can/_materials/Opener/原理化_BSDF.outputs:surface>
+                token outputs:surface.connect = </World/cola_can/_materials/Opener/Principled_BSDF.outputs:surface>
                 custom string userProperties:blender:data_name = "Opener"
 
-                def Shader "原理化_BSDF"
+                def Shader "Principled_BSDF"
                 {
                     uniform token info:id = "UsdPreviewSurface"
                     float inputs:clearcoat = 0
@@ -183,4 +183,3 @@ def Xform "World" (
         }
     }
 }
-

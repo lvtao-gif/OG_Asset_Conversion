@@ -214,6 +214,15 @@ objects:
   position: [1.9501, -1.2348, 0.8416]
   orientation: [-0.0, -0.0, 1.0, -0.0]
   abilities: null
+- type: USDObject
+  name: cola_can_0
+  usd_path: D:/VLAsafe/BEHAVIOR-1K-3.7.1/datasets/my_assets/objects/cola_can_hahaha/asdfgh/usd/cola_can_og_v2.usd
+  category: custom
+  scale: 0.01
+  position: [0.0, 0.0, 1.2]
+  orientation: [0.0, 0.0, 0.0, 1.0]
+  fixed_base: false
+  abilities: null
 robots:
 - type: FrankaPanda
   name: robot_FrankaPanda

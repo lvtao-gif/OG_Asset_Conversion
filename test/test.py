@@ -80,13 +80,28 @@ def main_sim_and_sam(
     env.reset()
 
     scene_objects = {}
+    missing_objects = []
     if 'objects' in cfg_Scene:
         for obj_config in cfg_Scene['objects']:
             if 'name' in obj_config:
                 obj_name = obj_config['name']
                 obj_reference = env.scene.object_registry("name", obj_name)
                 scene_objects[obj_name] = obj_reference
-                print(f"已获取对象引用-物体: {obj_name}")
+                if obj_reference is None:
+                    missing_objects.append(obj_name)
+                    print(f"[未找到] 物体未加载到 scene.object_registry: {obj_name}")
+                else:
+                    print(f"[已加载] 物体: {obj_name}")
+
+    if missing_objects:
+        print(f"[汇总] 以下物体未成功注册: {missing_objects}")
+        required_usd_objects = [
+            obj["name"]
+            for obj in cfg_Scene["objects"]
+            if obj.get("type") == "USDObject" and obj.get("name") in missing_objects
+        ]
+        if required_usd_objects:
+            raise RuntimeError(f"关键 USDObject 未加载成功: {required_usd_objects}")
 
     structure_categories = ['floors', 'walls', 'ceilings']
     scene_model = cfg_Scene.get('scene', {}).get('scene_model', '')

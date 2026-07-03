@@ -22,8 +22,11 @@
 - Source inspection: `RigidPrim.update_meshes()` classifies descendant meshes as collision meshes when `CollisionAPI` is applied.
 - Runtime evidence from user: USDA parser fails inside `cola_can.usd` at line 94 while composing `base_link`, with messages about attribute type / variability conflicts.
 - Local file inspection: the failing material section used non-ASCII shader prim names (`原理化_BSDF`, `图像纹理`) in both `def Shader` and connection paths.
+- Runtime evidence from user: after fixing shader names, OG proceeds further and now fails when constructing `MaterialPrim` for `/test_0/base_link/_materials/Body_1`, because every relative prim path component must start with a letter.
+- Local file inspection: Blender export created a material scope named `_materials`, which violates OmniGibson's `PrimBase` naming assertion.
 
 ## Verification Conclusion
 - Static source evidence supports Hypothesis A and B as most likely, but runtime evidence from the user's OG environment is still pending.
 - A second conversion variant was generated that reduces the hierarchy to `object -> base_link -> referenced geometry`, with collision APIs authored directly on the descendant meshes.
 - New evidence strongly supports an additional root cause: Blender-exported non-ASCII shader prim names are not being parsed robustly in the user's USD / Isaac / OG stack, so the material subtree must be ASCII-normalized first.
+- New evidence also confirms Hypothesis E: the wrapped asset still carries source-authored prim names that violate OmniGibson naming assumptions, so the material scope had to be renamed from `_materials` to `materials`.

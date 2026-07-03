@@ -103,6 +103,17 @@ def main_sim_and_sam(
         if required_usd_objects:
             raise RuntimeError(f"关键 USDObject 未加载成功: {required_usd_objects}")
 
+    debug_obj = scene_objects.get("cola_can_0")
+    if debug_obj is not None:
+        pos, quat = debug_obj.get_position_orientation()
+        print(f"[调试] cola_can_0 final_position: {pos}")
+        print(f"[调试] cola_can_0 final_orientation: {quat}")
+        if hasattr(debug_obj, "get_base_aligned_bbox"):
+            try:
+                print(f"[调试] cola_can_0 bbox: {debug_obj.get_base_aligned_bbox()}")
+            except Exception as exc:
+                print(f"[调试] cola_can_0 bbox_error: {exc}")
+
     structure_categories = ['floors', 'walls', 'ceilings']
     scene_model = cfg_Scene.get('scene', {}).get('scene_model', '')
     if scene_model:

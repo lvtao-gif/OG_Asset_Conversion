@@ -12,8 +12,8 @@ env:
     pose_frame: world
 render: {viewer_width: 800, viewer_height: 800}
 start_viewer_camera_pos_ort:
-  position: [ 1.3764, -1.3598,  2.4129]
-  orientation: [ 0.4010, -0.0885, -0.1965,  0.8904]
+  position: [1.55, -0.55, 1.35]
+  orientation: [0.4699, 0.1167, 0.2893, 0.8252]
 scene: {type: Scene, scene_model: null}
 objects:
 - type: DatasetObject
@@ -218,10 +218,10 @@ objects:
   name: cola_can_0
   usd_path: D:/VLAsafe/BEHAVIOR-1K-3.7.1/datasets/my_assets/objects/cola_can_hahaha/asdfgh/usd/cola_can_og_v2.usd
   category: custom
-  scale: 0.01
-  position: [0.0, 0.0, 1.2]
+  scale: 0.03
+  position: [1.92, 0.18, 1.05]
   orientation: [0.0, 0.0, 0.0, 1.0]
-  fixed_base: false
+  fixed_base: true
   abilities: null
 robots:
 - type: FrankaPanda

@@ -18,12 +18,23 @@ import math  # 数学计算库，用于圆周率等数学常数
 
 
 # 主函数
-def main_sim_and_sam(task_name=None, task_dir=None, capture_dir=None, robot_type=None, Save_video_date=True): # Save_video_date 是否采集视频数据
+def main_sim_and_sam(
+    task_name=None,
+    task_dir=None,
+    capture_dir=None,
+    robot_type=None,
+    Save_video_date=True,
+    enable_object_states=False,
+    enable_transition_rules=False,
+    enable_reset_hotkey=False,
+):  # Save_video_date 是否采集视频数据
     
     gm.USE_GPU_DYNAMICS = False
     gm.ENABLE_FLATCACHE = False
-    gm.ENABLE_OBJECT_STATES = True
-    gm.ENABLE_TRANSITION_RULES = True
+    # Custom USD smoke tests do not need the full BEHAVIOR state / transition stack.
+    # Disabling them avoids the v3.7.1 contact-view invalidation path in toggle updates.
+    gm.ENABLE_OBJECT_STATES = enable_object_states
+    gm.ENABLE_TRANSITION_RULES = enable_transition_rules
     gm.HEADLESS = False
 
     # 加载预选的配置文件 - 包含环境场景、obj、机器人等
@@ -92,11 +103,12 @@ def main_sim_and_sam(task_name=None, task_dir=None, capture_dir=None, robot_type
     robot = env.robots[0]
     action_dim = robot.action_dim
     action_generator = KeyboardRobotController(robot=robot)
-    action_generator.register_custom_keymapping(
-        key=lazy.carb.input.KeyboardInput.R,  # 按键：R
-        description="Reset the robot",         # 描述：重置机器人
-        callback_fn=lambda: env.reset(),       # 回调函数：调用环境重置
-    )
+    if enable_reset_hotkey:
+        action_generator.register_custom_keymapping(
+            key=lazy.carb.input.KeyboardInput.R,  # 按键：R
+            description="Reset the robot",         # 描述：重置机器人
+            callback_fn=lambda: env.reset(),       # 回调函数：调用环境重置
+        )
     action_generator.print_keyboard_teleop_info()     # 打印键盘控制说明信息
     # og.sim.enable_viewer_camera_teleoperation()
 

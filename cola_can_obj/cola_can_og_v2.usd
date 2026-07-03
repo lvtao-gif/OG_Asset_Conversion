@@ -1,0 +1,39 @@
+#usda 1.0
+(
+    defaultPrim = "cola_can"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "cola_can"
+{
+    def Xform "base_link" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI"]
+        prepend references = @./cola_can.usd@</World/cola_can>
+    )
+    {
+        float3 xformOp:translate = (0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+
+        over "Cola_Can_Cylinder"
+        {
+            over "Cola_Can_Cylinder" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+            )
+            {
+                uniform token physics:approximation = "convexHull"
+            }
+        }
+
+        over "Opener_Plane_001"
+        {
+            over "Opener_Plane_001" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+            )
+            {
+                uniform token physics:approximation = "convexHull"
+            }
+        }
+    }
+}
